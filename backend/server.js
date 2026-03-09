@@ -23,6 +23,15 @@ const Expense = require('./models/Expense');
 const app = express();
 const Tesseract = require("tesseract.js");
 const multer = require("multer");
+const cors = require("cors");
+
+app.use(cors({
+  origin: [
+    "https://expense-tracker-sigma-beige.vercel.app",
+    "https://expense-tracker-izqtltpuq-iswarya248s-projects.vercel.app"
+  ],
+  credentials: true
+}));
 
 // configure image upload
 const storage = multer.diskStorage({
