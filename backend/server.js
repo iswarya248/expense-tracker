@@ -52,6 +52,12 @@ app.use(cors({
   origin: ['http://localhost:3000', 'http://localhost:3001'],
   credentials: true
 }));
+const cors = require("cors");
+
+app.use(cors({
+  origin: "*",
+  credentials: true
+}));
 
 /* ---------------- Rate Limiting ---------------- */
 
