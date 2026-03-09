@@ -1,7 +1,5 @@
-import dotenv from "dotenv";
-dotenv.config();
 
-import mongoose from "mongoose";
+
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -23,13 +21,14 @@ const Expense = require('./models/Expense');
 const app = express();
 const Tesseract = require("tesseract.js");
 const multer = require("multer");
-const cors = require("cors");
+
 
 app.use(cors({
   origin: [
-    "https://expense-tracker-sigma-beige.vercel.app",
-    "https://expense-tracker-izqtltpuq-iswarya248s-projects.vercel.app"
+    "http://localhost:3000",
+    "https://expense-tracker-sigma-beige.vercel.app"
   ],
+  methods: ["GET","POST","PUT","DELETE"],
   credentials: true
 }));
 
@@ -46,16 +45,7 @@ const upload = multer({ storage });
 
 /* ---------------- Security Middleware ---------------- */
 
-const cors = require("cors");
 
-app.use(cors({
-  origin: [
-    "http://localhost:3000",
-    "https://expense-tracker-sigma-beige.vercel.app"
-  ],
-  methods: ["GET","POST","PUT","DELETE"],
-  credentials: true
-}));
 /* ---------------- Rate Limiting ---------------- */
 
 const limiter = rateLimit({
