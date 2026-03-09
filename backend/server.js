@@ -46,19 +46,19 @@ const upload = multer({ storage });
 
 /* ---------------- Security Middleware ---------------- */
 
+const cors = require("cors");
+const helmet = require("helmet");
+
 app.use(helmet());
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://localhost:3001'],
+  origin: [
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "https://expense-tracker-sigma-beige.vercel.app"
+  ],
   credentials: true
 }));
-const cors = require("cors");
-
-app.use(cors({
-  origin: "*",
-  credentials: true
-}));
-
 /* ---------------- Rate Limiting ---------------- */
 
 const limiter = rateLimit({
