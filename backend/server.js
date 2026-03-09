@@ -204,6 +204,7 @@ app.use((err, req, res, next) => {
 /* ---------------- Database + Server ---------------- */
 
 const PORT = process.env.PORT || 5000;
+const API_URL = "https://expense-tracker-ai-l9b7.onrender.com/api";
 
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
